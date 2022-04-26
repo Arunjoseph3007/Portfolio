@@ -1,4 +1,3 @@
-import React from "react";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -8,12 +7,14 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
         scrollbar-width: thin;
         scrollbar-color: grey;
-        // cursor:none;
+        cursor:none;
     }
-    .cursorOnA{
-        transition:all 0.3s ease;
-        height:70px;
-        background-color:transparent;
+    .cursorOnA {
+        transition: all 0.3s ease;
+        height: 70px;
+        background-color: #23d997;
+        border-color: #23d997;
+        box-shadow: 0 0 30px #2d9;
     }
     @media screen and (max-width: 860px){
         html{

@@ -8,56 +8,54 @@ import Design from "./Components/Design";
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
 import BlogPage from "./Pages/BlogPage";
+import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import FooterSection from "./Components/Footer";
 //GLOBAL STYLES
 import GlobalStyle from "./Components/GlobalStyle";
+import { StyledCursor } from "./Components/ReusableStyles";
 //FRamer motion
-import { AnimatePresence } from "framer-motion"
-
-const cursorStyles={
-  position:"fixed",
-  height:"50px",
-  aspectRatio:1,
-  backgroundColor:"white",
-  border:"2px solid white",
-  borderRadius:"50%",
-  transition:"all 0.4s ease, transform 0.05s ease",
-  mixBlendMode:"exclusion",
-  zIndex:100000,
-  pointerEvents:"none",
-}
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const location = useLocation();
   const cursor = useRef();
 
-  useEffect(()=>{
-    window.addEventListener('mousemove',(e)=>{
+  useEffect(() => {
+    window.addEventListener("mousemove", (e) => {
       const x = e.clientX;
       const y = e.clientY;
-      cursor.current.style.transform = `translate(${x-25}px, ${y-25}px)`
-    })
+      cursor.current.style.transform = `translate(${x - 25}px, ${y - 25}px)`;
+    });
 
-    document.querySelectorAll('a').forEach((a)=>a.addEventListener('mousemove',()=>{
-      cursor.current.classList.add('cursorOnA')
-    }))
+    document
+      .querySelectorAll("a")
+      .forEach((a) =>
+        a.addEventListener("mouseover", () =>
+          cursor.current.classList.add("cursorOnA")
+        )
+      );
 
-    document.querySelectorAll('a').forEach((a)=>a.addEventListener('mouseout',()=>{
-      cursor.current.classList.remove('cursorOnA')
-    }))
-  },[cursor.current])
+    document
+      .querySelectorAll("a")
+      .forEach((a) =>
+        a.addEventListener("mouseout", () =>
+          cursor.current.classList.remove("cursorOnA")
+        )
+      );
+  }, []);
 
   return (
     <>
       <GlobalStyle />
-      <div style={cursorStyles} ref={cursor}></div>
+      <StyledCursor ref={cursor} />
       <Nav />
-      <Design/>
+      <Design />
       <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} exact />
           <Route path="/blog" element={<Blog />} exact />
+          <Route path="/projects" element={<Projects />} exact />
           <Route path="/contact" element={<Contact />} exact />
           <Route path="/blog/:id" element={<BlogPage />} />
         </Routes>

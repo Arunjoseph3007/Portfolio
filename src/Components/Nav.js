@@ -37,7 +37,7 @@ const Nav = () => {
     <Navbar>
       <Link to="/">
         <h1 className="logo">
-          <span>My</span> Blog
+          <span>Arun </span>Joseph
         </h1>
       </Link>
       <button style={btnStyles} onClick={()=>setIsOpen(!isOpen)}>
@@ -72,6 +72,12 @@ const Nav = () => {
           <div className={`line ${Url === "/blog" ? "active" : ""}`}></div>
         </li>
         <li className="nav-item">
+          <Link to="/projects" className="nav-link">
+            Projects
+          </Link>
+          <div className={`line ${Url === "/projects" ? "active" : ""}`}></div>
+        </li>
+        <li className="nav-item">
           <Link to="/contact" className="nav-link">
             Contact
           </Link>
@@ -90,6 +96,11 @@ const Nav = () => {
           </Link>
         </li>
         <li className="nav-item">
+          <Link to="/projects" className="nav-link">
+            Projects
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/contact" className="nav-link">
             Contact
           </Link>
@@ -100,7 +111,7 @@ const Nav = () => {
 };
 
 const Navbar = styled.div`
-  width:100%
+  width:100%;
   background-color: #000000;
   color: #fff;
   display: flex;

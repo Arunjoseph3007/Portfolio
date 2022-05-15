@@ -5,15 +5,19 @@ import {
   List,
   SecTitle,
   MarkdownSection,
-} from "../Components/ReusableStyles";
+} from "../Components/lookAndFeel/ReusableStyles";
 import { AllPosts } from "../posts/Getdata";
 import ReactMarkdown from "react-markdown";
+import useScrollToTop from "../Utils/useScrollToTop";
 
 function BlogPage() {
   const [post, setPost] = useState();
   const fileName = window.location.href.slice(
     window.location.href.indexOf("/blog") + 6
   );
+
+  useScrollToTop()
+
   useEffect(() => {
     import(`../posts/${fileName}.md`)
       .then((res) => {
@@ -23,7 +27,7 @@ function BlogPage() {
           .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [fileName]);
   const [ThisPost] = AllPosts.filter((p) => (p.filename = fileName));
 
   return (

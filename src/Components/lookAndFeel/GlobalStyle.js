@@ -7,14 +7,21 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
         scrollbar-width: thin;
         scrollbar-color: grey;
-        cursor:none;
+        --cursor-height:50px;
+        --cursor-bg: white;
+        --cursor-box-shadow: 0 0 30px #23d997;
     }
-    .cursorOnA {
-        transition: all 0.3s ease;
-        height: 70px;
-        background-color: #23d997;
-        border-color: #23d997;
-        box-shadow: 0 0 30px #2d9;
+    a{
+        &:hover{
+            --cursor-height:70px;
+            --cursor-bg: #23d997;
+            --cursor-box-shadow: 0 0 30px #2d9;
+        }
+    }
+    a:hover .cursorOnA{
+        --cursor-height:70px;
+        --cursor-bg: #23d997;
+        --cursor-box-shadow: 0 0 30px #2d9;
     }
     @media screen and (max-width: 860px){
         html{

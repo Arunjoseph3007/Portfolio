@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { titleAnim ,fadeIn } from "./Animations";
-import { MainSections, Title, StyledSvg, Hider } from "./ReusableStyles";
+import { titleAnim ,fadeIn } from "../lookAndFeel/Animations";
+import { MainSections, Title, StyledSvg, Hider } from "../lookAndFeel/ReusableStyles";
 
 const AboutSection = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { MainSections, SecTitle, List,StyledListItem } from "./ReusableStyles";
-import { AllProjects } from "../posts/Getdata";
+import { MainSections, SecTitle, List,StyledListItem } from "../lookAndFeel/ReusableStyles";
+import { AllProjects } from "../../posts/Getdata";
 import { Link } from "react-router-dom";
 
 const ProjectList = () => {
@@ -21,7 +21,9 @@ const ProjectList = () => {
           <p>{project.description}</p>
           <a href={project.link} target="_blank" className="link">Visit the site here &rarr;</a>
           <List>
-            
+          {project?.stack?.map((tag, i) => (
+            <li key={i}>{tag}</li>
+          ))}
           </List>
         </div>
       </StyledListItem>
@@ -29,6 +31,7 @@ const ProjectList = () => {
     </StyledBlogList>
   );
 };
+
 const StyledBlogList = styled(MainSections)`
   padding-top: 0rem;
   padding-bottom: 6rem;

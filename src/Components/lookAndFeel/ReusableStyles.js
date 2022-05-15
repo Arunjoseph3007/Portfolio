@@ -32,13 +32,13 @@ export const StyledSvg = styled.svg`
 `;
 
 export const StyledCursor = styled.div`
-  position: fixed;
-  height: 50px;
-  aspect-ratio: 1;
-  background-color: white;
-  border: 2px solid white;
-  border-radius: 50%;
+  height: var(--cursor-height);
+  background-color: var(--cursor-bg);
+  box-shadow:var(--cursor-box-shadow);
   transition: all 1.5s ease, transform 0.05s ease;
+  position: fixed;
+  aspect-ratio: 1;
+  border-radius: 50%;
   mix-blend-mode: exclusion;
   z-index: 10000;
   pointer-events: none;
@@ -82,10 +82,12 @@ export const SecTitle = styled(Title)`
 
 export const List = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
+  margin-top: 2.5rem;
   li {
     box-sizing: content-box;
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
     margin-right: 0.5rem;
     color: black;
     display: inline-block;
@@ -154,12 +156,16 @@ export const StyledListItem = styled.div`
     max-width: 500px;
     aspect-ratio: 1.8;
     border-radius: 5px;
-    object-fit: cover;
+    object-fit: contain;
   }
   .info {
     padding: 0 2rem;
     h2 {
-      font-size: 2.3rem;
+      font-size: 2.1rem;
+      a{
+        text-transform: uppercase;
+        letter-spacing: .4rem;
+      }
     }
     .dotted {
       box-sizing: content-box;

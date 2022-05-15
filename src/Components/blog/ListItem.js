@@ -1,5 +1,5 @@
 import React from "react";
-import { List, StyledListItem } from "./ReusableStyles";
+import { List, StyledListItem } from "../lookAndFeel/ReusableStyles";
 import { Link } from "react-router-dom";
 
 const BlogItem = ({ data }) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FooterSection = () => {
   return (
@@ -9,16 +10,16 @@ const FooterSection = () => {
           <h4>PAGES</h4>
           <ul>
             <li>
-              <a href="#">Home/About</a>
+              <Link to="/">Home/About</Link>
             </li>
             <li>
-              <a href="#">Blog</a>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <Link to="/projects">Projects</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -49,7 +50,7 @@ const FooterSection = () => {
 
 const StyledFooter = styled.footer`
   z-index: 100;
-  padding-top:5rem;
+  padding-top: 5rem;
   backdrop-filter: blur(3px);
   color: #ffffff;
   box-shadow: 0 0 18px #202020 inset;
@@ -77,28 +78,28 @@ const StyledFooter = styled.footer`
       list-style: square;
     }
   }
-  @media screen and (max-width: 860px){
-    .footer-content{
-      width:100%;
-      padding:3rem 6rem;
-      flex-direction:column;
+  @media screen and (max-width: 860px) {
+    .footer-content {
+      width: 100%;
+      padding: 3rem 6rem;
+      flex-direction: column;
     }
     .pages,
     .links {
-      font-size:3rem;
-      padding-top:3rem;
-      h4{
-        margin-bottom:2.5rem;
+      font-size: 3rem;
+      padding-top: 3rem;
+      h4 {
+        margin-bottom: 2.5rem;
       }
-      li a{
-        font-size:2rem;
+      li a {
+        font-size: 2rem;
       }
-      border:none;
+      border: none;
     }
-    .nothing{
-      margin-top:2rem;
-      font-size:1.4rem;
-      text-align:center;
+    .nothing {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      text-align: center;
     }
   }
 `;

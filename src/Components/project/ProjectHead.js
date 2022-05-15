@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { titleAnim, fadeIn } from "./Animations";
+import { titleAnim, fadeIn } from "../lookAndFeel/Animations";
 import {
   StyledSvg,
   MainSections,
   Title,
   Hider,
-} from "../Components/ReusableStyles";
+} from "../lookAndFeel/ReusableStyles";
 
 const ProjectHead = () => {
   return (

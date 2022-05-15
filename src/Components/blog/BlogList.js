@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import BlogItem from "./BlogItem";
-import { MainSections, SecTitle } from "./ReusableStyles";
-import { AllPosts } from "../posts/Getdata";
+import BlogItem from "./ListItem";
+import { MainSections, SecTitle } from "../lookAndFeel/ReusableStyles";
+import { AllPosts } from "../../posts/Getdata";
 
 const BlogList = () => {
   return (

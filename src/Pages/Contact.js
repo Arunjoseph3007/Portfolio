@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { titleAnim, fadeIn } from "../Components/Animations";
+import { titleAnim, fadeIn } from "../Components/lookAndFeel/Animations";
 import {
   StyledSvg,
   MainSections,
   Title,
   Hider,
-} from "../Components/ReusableStyles";
-
-
+} from "../Components/lookAndFeel/ReusableStyles";
+import useScrollToTop from "../Utils/useScrollToTop";
 
 const Contact = () => {
+  useScrollToTop()
   return (
     <MainSections variants={fadeIn} initial="hidden" animate="show" exit="exit">
       <Hider>

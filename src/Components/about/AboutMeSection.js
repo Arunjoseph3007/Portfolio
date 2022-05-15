@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainSections, Title, Line } from "./ReusableStyles";
+import { MainSections, Title, Line } from "../lookAndFeel/ReusableStyles";
 
 function AboutMe() {
   return (
@@ -23,20 +23,13 @@ function AboutMe() {
           Loves to code  /  Keen about maths / Man United Fan  /  Football is Life
            /  Enjoy Learning  /  Love to be a Teacher someday  /  Music Lover  /  
           Self taught Music producer (Just a little bit)  /  Loves Creating stuff  /  
-
         </p>
       </div>
       <div className="containers profesionaly">
         <h2>Professionally</h2>
         <Line />
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis,
-          eveniet veniam cum et atque nihil quidem error aut dolor? Provident
-          quae asperiores sed amet cupiditate obcaecati libero accusamus,
-          voluptatibus animi! Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Facilis, eveniet veniam cum et atque nihil quidem
-          error aut dolor? Provident quae asperiores sed amet cupiditate
-          obcaecati libero accusamus, voluptatibus animi!
+          Web Developer / Front End Development Using React / Dabbles in the backend with MERN Stack / Firebase And Firestore / 
         </p>
       </div>
     </StyledAboutMe>
@@ -44,7 +37,6 @@ function AboutMe() {
 }
 const StyledAboutMe = styled(MainSections)`
   height:auto;
-  // padding-top: 0;
   padding-bottom: 3rem;
   margin-top: 0;
   .containers {

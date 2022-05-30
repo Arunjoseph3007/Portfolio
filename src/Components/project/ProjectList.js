@@ -1,33 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { MainSections, SecTitle, List,StyledListItem } from "../lookAndFeel/ReusableStyles";
+import {
+  MainSections,
+  SecTitle,
+  List,
+} from "../lookAndFeel/ReusableStyles";
 import { AllProjects } from "../../posts/Getdata";
-import { Link } from "react-router-dom";
+import { Controller, Scene } from "scrollmagic";
 
 const ProjectList = () => {
+  useEffect(() => {
+    const controller = new Controller();
+    new Scene({
+      duration: "200%",
+      triggerElement: ".l-tab",
+      triggerHook: 0,
+    })
+      .setPin(".l-tab")
+      .addIndicators()
+      .addTo(controller);
+  }, []);
+
   return (
     <StyledBlogList>
       <SecTitle style={{ marginBottom: "6rem" }}>
         Take a Look<b>.</b>
       </SecTitle>
-      {AllProjects.map((project) => (
-        <StyledListItem key={project.id}>
-        <img src={project.image} alt="blog cover" />
-        <div className="info">
-          <h2>
-            <Link to={`/blog/${project.filename}`}>{project.title}</Link>
-          </h2>
-          <div className="dotted"></div>
-          <p>{project.description}</p>
-          <a href={project.link} target="_blank" className="link">Visit the site here &rarr;</a>
-          <List>
-          {project?.stack?.map((tag, i) => (
-            <li key={i}>{tag}</li>
-          ))}
-          </List>
+      <StyledProjectList>
+        <div className="tab l-tab">
+          <h1>Projects</h1>
         </div>
-      </StyledListItem>
-      ))}
+        <div className="tab r-tab">
+          {AllProjects.map((project) => (
+            <div className="project-tab">
+              <div className="head">
+                <img src={project.image} />
+                <h1>{project.title}</h1>
+              </div>
+              <p>{project.description}</p>
+              <List>
+                {project?.stack?.map((tag, i) => (
+                  <li key={i}>{tag}</li>
+                ))}
+              </List>
+              <a href={project.link} target="_blank" className="link">
+                Visit the site here &rarr;
+              </a>
+            </div>
+          ))}
+        </div>
+      </StyledProjectList>
     </StyledBlogList>
   );
 };
@@ -38,7 +60,58 @@ const StyledBlogList = styled(MainSections)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height:auto;
+  height: auto;
+`;
+
+const StyledProjectList = styled.div`
+  padding-inline: 0;
+  height: 300vh;
+  display: flex;
+  align-items: space-between;
+  .tab {
+    flex: 1;
+    width: 50%;
+  }
+  .l-tab {
+    height: 100vh;
+    h1 {
+      text-transform: uppercase;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 6.5rem;
+      font-weight: bolder;
+      color: gray;
+      margin-top:5rem;
+    }
+  }
+  .r-tab {
+    .project-tab {
+      height: 100vh;
+      a{
+        margin-top:1rem;
+        color:#23d997;
+        display:block;
+      }
+      .head {
+        position: relative;
+        margin-bottom: 1rem;
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, transparent 1%, black 85%);
+        }
+        img {
+          width: 100%;
+        }
+        h1 {
+          position: absolute;
+          bottom: 20px;
+          text-transform: uppercase;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
 `;
 
 export default ProjectList;

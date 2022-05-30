@@ -40,6 +40,11 @@ const StyledDesign = styled.div`
   height: 10vh;
   background-color: transparent;
   position: relative;
+  @media screen and (max-width: 860px) {
+    :nth-child(even) {
+      display: none;
+    }
+  }
 `;
 
 const StyledDot = styled(motion.div)`
